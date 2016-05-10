@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="bomb.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		
+        
+	</head>
+	<body>
+      <div class="container">
+        <nav id="navigationBar" class="navbar navbar-default" role="navigation">
+        
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header" style="min-height:75px;">
+                <a class="navbar-brand" href=""><img class="headerimage" src="./Symbols/logo-transparent.png" class="img-responsive"></a>
+            </div>
+            <!-- /.navbar-header -->
+        </nav>
+        <div class="navbar-strip"></div>
+
+        <div id="ModuleSelection" style="display:none;">
+            <div class="row gallery">
+
+                <div class="col-lg-12">
+                    <h2 class="page-title">Select all the modules on the bomb...</h2>
+                </div>
+                    
+                <div class="col-lg-2 col-sm-4 col-xs-12 thumb">
+                    <button type="button" class="btn btn-secondary btn-thumbnail" id="Wires-Button">Wires</button>
+                </div>
+                <div class="col-lg-2 col-sm-4 col-xs-12 thumb">
+                    <button type="button" class="btn btn-secondary btn-thumbnail" id="Button-Button">Button</button>
+                </div>
+                <div class="col-lg-2 col-sm-4 col-xs-12 thumb">
+                    <button type="button" class="btn btn-secondary btn-thumbnail" id="Symbols-Button">Symbols</button>
+                </div>
+                <div class="col-lg-2 col-sm-4 col-xs-12 thumb">
+                    <button type="button" class="btn btn-secondary btn-thumbnail" id="Simon-Button">Simon Says</button>
+                </div>
+                <div class="col-lg-2 col-sm-4 col-xs-12 thumb">
+                    <button type="button" class="btn btn-secondary btn-thumbnail" id="Whos-Button">Who's on First</button>
+                </div>
+                <div class="col-lg-2 col-sm-4 col-xs-12 thumb">
+                    <button type="button" class="btn btn-secondary btn-thumbnail" id="Memory-Button">Memory</button>
+                </div>
+                <div class="col-lg-2 col-sm-4 col-xs-12 thumb">
+                    <button type="button" class="btn btn-secondary btn-thumbnail" id="Morse-Button">Morse Code</button>
+                </div>
+                <div class="col-lg-2 col-sm-4 col-xs-12 thumb">
+                    <button type="button" class="btn btn-secondary btn-thumbnail" id="Complicated-Button">Complicated Wires</button>
+                </div>
+                <div class="col-lg-2 col-sm-4 col-xs-12 thumb">
+                    <button type="button" class="btn btn-secondary btn-thumbnail" id="Sequences-Button">Wire Sequences</button>
+                </div>
+                <div class="col-lg-2 col-sm-4 col-xs-12 thumb">
+                    <button type="button" class="btn btn-secondary btn-thumbnail" id="Maze-Button">Maze</button>
+                </div>
+                <div class="col-lg-2 col-sm-4 col-xs-12 thumb">
+                    <button type="button" class="btn btn-secondary btn-thumbnail" id="Password-Button">Password</button>
+                </div>
+                <div class="col-lg-2 col-sm-4 col-xs-12 thumb">
+                    <button type="button" class="btn btn-secondary btn-thumbnail" id="All-Button">All</button>
+                </div>
+            </div>
+        
+            <button type="button" class="btn btn-success btn-lg btn-submit pull-right" id="SubmitModulesButton">Continue...</button>
+        </div>
+        <div id="modules" hidden>
+            <ul class="nav nav-tabs">
+                <li role="presentation" style="display: none;">
+                    <a href="#wires-panel" data-toggle="tab" id="Wires">Wires</a>
+                </li>
+                <li role="presentation" style="display: none;">
+                    <a href="#button-panel" data-toggle="tab" id="Button">Button</a>
+                </li>
+                <li role="presentation" style="display: none;">
+                    <a href="#symbols-panel" data-toggle="tab" id="Symbols">Symbols</a>
+                </li>
+                <li role="presentation" style="display: none;">
+                    <a href="#simon-panel" data-toggle="tab" id="Simon">Simon Says</a>
+                </li>
+                <li role="presentation" style="display: none;">
+                    <a href="#whos-panel" data-toggle="tab" id="Whos">Who's on First</a>
+                </li>
+                <li role="presentation" style="display: none;">
+                    <a href="#memory-panel" data-toggle="tab" id="Memory">Memory</a>
+                </li>
+                <li role="presentation" style="display: none;">
+                    <a href="#morse-panel" data-toggle="tab" id="Morse">Morse Code</a>
+                </li>
+                <li role="presentation" style="display: none;">
+                    <a href="#complicated-panel" data-toggle="tab" id="Complicated">Complicated Wires</a>
+                </li>
+                <li role="presentation" style="display: none;">
+                    <a href="#sequences-panel" data-toggle="tab" id="Sequences">Wire Sequences</a>
+                </li>
+                <li role="presentation" style="display: none;">
+                    <a href="#maze-panel" data-toggle="tab" id="Maze">Maze</a>
+                </li>
+                <li role="presentation" style="display: none;">
+                    <a href="#password-panel" data-toggle="tab" id="Password">Password</a>
+                </li>
+                <li class="pull-right" style="display:none;" id="strike">
+                    <button type="button" class="btn btn-default btn-md pull-right strike">Strikes</button>
+                </li>
+            </ul>
+            
+    		
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade" id="wires-panel"></div>
+                <div role="tabpanel" class="tab-pane fade" id="button-panel"></div>
+                <div role="tabpanel" class="tab-pane fade" id="symbols-panel"></div>
+                <div role="tabpanel" class="tab-pane fade" id="simon-panel"></div>
+                <div role="tabpanel" class="tab-pane fade" id="whos-panel"></div>
+                <div role="tabpanel" class="tab-pane fade" id="memory-panel"></div>
+                <div role="tabpanel" class="tab-pane fade" id="morse-panel"></div>
+                <div role="tabpanel" class="tab-pane fade" id="complicated-panel"></div>
+                <div role="tabpanel" class="tab-pane fade" id="sequences-panel"></div>
+                <div role="tabpanel" class="tab-pane fade" id="maze-panel"></div>
+                <div role="tabpanel" class="tab-pane fade" id="password-panel"></div>
+            </div>
+        </div>	
+
+
+        <div hidden id="bomb-questions">
+            <div class="bomb-question" hidden id="serialdigit">
+                <h4>Last digit of the serial number:</h4>
+                <div class="btn-group btn-toggle " name="flip" id="serialdigit1">
+                    <button class="btn btn-default " name="flip-1" id="serialeven" value="even">EVEN</button>
+                    <button class="btn btn-primary " name="flip-1" value="odd" id="odd">ODD</button>
+                </div>
+            </div>
+					
+			<div class="bomb-question" hidden id="serialvowel">
+				<h4>Does the serial number have a vowel?</h4>
+				<div class="btn-group btn-toggle">
+					<button class="btn btn-default " id="vowel  yes">YES</button>
+					<button class="btn btn-primary " id="no">NO</button>
+				</div>
+			</div>
+			<div class="bomb-question" id="batteries1">
+				<h4>How many batteries?</h4>
+
+		        <div class="btn-group btn-rachael btn-group-md">
+                    <button type="button" class="btn btn-primary " id="bat0">0</button>
+                    <button type="button" class="btn btn-default " id="bat1">1</button>
+                    <button type="button" class="btn btn-default " id="bat2">2</button>
+                    <button type="button" class="btn btn-default " id="bat3">3+</button>
+
+                </div>
+			</div>
+			<div class="bomb-question" hidden id="car">
+				<h4>Is there a lit indicator CAR?</h4>
+				<div class="btn-group btn-toggle">
+					<button class="btn btn-default " id="CAR">YES</button>
+					<button class="btn btn-primary " id="no">NO</button>
+				</div>
+			</div>
+			<div class="bomb-question" hidden id="frk">
+				<h4>Is there a lit indicator FRK?</h4>
+				<div class="btn-group btn-toggle">
+					<button class="btn btn-default " id="FRK">YES</button>
+					<button class="btn btn-primary " id="no">NO</button>
+				</div>
+			</div>
+			<div class="bomb-question" hidden id="parallel">
+				<h4>Is there a parallel port?</h4>
+				<div class="btn-group btn-toggle">
+					<button class="btn btn-default " id="parallel1">YES</button>
+					<button class="btn btn-primary " id="no">NO</button>
+				</div>
+			</div>
+
+            <button type="button" class="btn btn-success btn-lg btn-submit pull-right" id="SubmitConditionsButton">Continue...</button>
+		 </div>
+
+
+		<script src="jquery.js"></script>
+		<script src="bootstrap.js"></script>
+		<script src="bomb.js"></script>
+		<script src="initialModuleQuestions.js"></script>
+		<script src="bombExtraLogic.js"></script>
+		<script src="modules/abcwires.js"></script>
+		<script src="modules/button.js"></script>
+		<script src="modules/complicatedwires.js"></script>
+		<script src="modules/memory.js"></script>
+		<script src="modules/maze.js"></script>
+		<script src="modules/morse.js"></script>
+		<script src="modules/password.js"></script>
+		<script src="modules/simon.js"></script>
+		<script src="modules/whos.js"></script> 
+		<script src="modules/simplewires.js"></script>
+		<script src="modules/symbols.js"></script>
+	  </div>					
+	</body>
+    <footer>
+        <hr/>
+  
+  <p><a href="mailto:rachael.crafted@gmail.com">
+  Contact</a> <p class="pull-right">: An unoffical helper</p><a class="pull-right" href="http://www.keeptalkinggame.com/">
+  Keep Talking and Nobody Explodes</a></p>
+</footer>
+</html>

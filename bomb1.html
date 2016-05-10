@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html>
+	<!-- runs this module when document loads -->
+	<head>
+		<link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="bomb.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	</head>
+	<body>
+		<div id="ModuleSelection">
+			<form name="reviewForm" >
+				<blockquote >Select your modules</blockquote>
+				<button type="button" class="btn btn-secondary" id="WiresButton">Wires</button>
+				<button type="button" class="btn btn-secondary" id="ButtonButton">Button</button>
+				<button type="button" class="btn btn-secondary" id="SymbolsButton">Symbols</button>
+				<button type="button" class="btn btn-secondary" id="SimonButton">Simon Says</button>
+				<button type="button" class="btn btn-secondary" id="WhosButton">Who's on First</button>
+				<button type="button" class="btn btn-secondary" id="MemoryButton">Memory</button>
+				<br>
+					<br>
+						<button type="button" class="btn btn-secondary" id="MorseButton">Morse Code</button>
+						<button type="button" class="btn btn-secondary" id="ComplicatedButton">Complicated Wires</button>
+						<button type="button" class="btn btn-secondary" id="SequencesButton">Wire Sequences</button>
+						<button type="button" class="btn btn-secondary" id="MazeButton">Maze</button>
+						<button type="button" class="btn btn-secondary" id="PasswordButton">Password</button>
+						<br>
+							<br></form>
+						</div>
+						<div class="container pull-left">
+							<!-- <h3>Modules</h3> -->
+							<ul class="list-inline">
+								<li style="display: none;">
+									<a id="Wires">Wires</a>
+								</li>
+								<li style="display: none;">
+									<a id="Button">Button</a>
+								</li>
+								<li style="display: none;">
+									<a id="Symbols">Symbols</a>
+								</li>
+								<li style="display: none;">
+									<a id="Simon">Simon Says</a>
+								</li>
+								<li style="display: none;">
+									<a id="Whos">Who's on First</a>
+								</li>
+								<li style="display: none;">
+									<a id="Simon">Simon Says</a>
+								</li>
+								<li style="display: none;">
+									<a id="Memory">Memory</a>
+								</li>
+								<li style="display: none;">
+									<a id="Morse">Morse Code</a>
+								</li>
+								<li style="display: none;">
+									<a id="Complicated">Complicated Wires</a>
+								</li>
+								<li style="display: none;">
+									<a id="Sequences">Wire Sequences</a>
+								</li>
+								<li style="display: none;">
+									<a id="Maze">Maze</a>
+								</li>
+								<li style="display: none;">
+									<a id="Password">Password</a>
+								</li>
+							</ul>
+							<button type="button" class="btn btn-primary" id="SubmitModulesButton">Submit</button>
+						</div>
+				
+					<!-- Conditions -->
+					<div class="container pull-left" hidden id="containerButton">
+						<div class="container pull-left" hidden id="serialdigit">
+							<h4>Last digit of the serial number:</h4>
+							<div class="btn-group btn-toggle" name="flip" id="serialdigit1">
+								<button class="btn btn-default" name="flip-1" id="serialeven" value="even">EVEN</button>
+								<button class="btn btn-primary" name="flip-1" value="odd" id="odd">ODD</button>
+							</div>
+						</div>
+					
+					<div class="container pull-left" hidden id="serialvowel">
+						<h4>Does the serial number have a vowel?</h4>
+						<div class="btn-group btn-toggle">
+							<button class="btn btn-default" id="yes">YES</button>
+							<button class="btn btn-primary" id="no">NO</button>
+						</div>
+					</div>
+					<div class="container pull-left" hidden id="batteries1">
+						<h4>How many batteries?</h4>
+						<div class="btn-group btn-toggle">
+							<button class="btn btn-default" id="bat0">0</button>
+							<button class="btn btn-danger" id="bat1">1</button>
+							<button class="btn btn-info" id="bat2">2</button>
+							<button class="btn btn-primary" id="bat3">2+</button>
+						</div>
+					</div>
+					<div class="container pull-left" hidden id="car">
+						<h4>Is there a lit indicator CAR?</h4>
+						<div class="btn-group btn-toggle">
+							<button class="btn btn-default" id="CAR">YES</button>
+							<button class="btn btn-primary" id="no">NO</button>
+						</div>
+					</div>
+					<div class="container pull-left" hidden id="frk">
+						<h4>Is there a lit indicator FRK?</h4>
+						<div class="btn-group btn-toggle">
+							<button class="btn btn-default" id="FRK">YES</button>
+							<button class="btn btn-primary" id="no">NO</button>
+						</div>
+					</div>
+					<div class="container pull-left" hidden id="parallel">
+						<h4>Is there a parallel port?</h4>
+						<div class="btn-group btn-toggle">
+							<button class="btn btn-default" id="parallel1">YES</button>
+							<button class="btn btn-primary" id="no">NO</button>
+						</div>
+					</div>
+					<div class="container pull-left">
+						<br>
+							<br>
+								<br>
+									<button type="button" class="btn btn-primary" id="SubmitConditionsButton">Submit</button>
+								</div>
+							</div>  
+							<div class="container pull-left" hidden id="WiresModule">
+								<h4>Click the wires in the order they appear from top to bottom</h4>
+								<input type="button" class="btn" value="Red" onClick="addWire('Red')" ;/>
+								<input type="button" class="btn" value="White" onClick="addWire('White')" ;/>
+								<input type="button" class="btn" value="Blue" onClick="addWire('Blue')" ;/>
+								<input type="button" class="btn" value="Yellow" onClick="addWire('Yellow')" ;/>
+								<input type="button" class="btn" value="Black" onClick="addWire('Black')" ;/>
+								<h3 id="dd" class="gamesection">
+									<span>Selected wires</span>
+								</h3>
+								<div id="wireList" style="padding: 0;">
+									<ul id="currentWireList"></ul>
+								</div>
+								<button type="button" class="btn btn-primary" id="wiresSubmit">Submit</button>
+							</div>
+							<div hidden id="wiresSolution">
+								<br>
+									<h3 id="wiresSolutionText"></h3>
+									<button type="button" class="btn btn-primary" id="wiresDone">Got it!</button>
+								</div>
+								<div class="container pull-left" hidden id="ButtonModule">
+									<h4>Select the color and text of the button</h4>
+									<div class="btn-group-vertical" id="divcolor">
+										
+										<input type="button" name="color" class="btn" value="Red" id="buttonRed"  ;/>
+										<br>
+										<input type="button" name="color" class="btn" value="White" id="buttonWhite"  ;/>
+										<br>
+										<input type="button" name="color" class="btn" value="Blue" id="buttonBlue"  ;/>
+										<br>
+										<input type="button" name="color" class="btn" value="Yellow" id="buttonYellow"  ;/>
+									</div>
+									<div class="btn-group-vertical btntest">
+										<input type="button" class="btn" name="text" value="Detonate" id="buttonDetonate"  ;/>
+										<br>
+										<input type="button" class="btn" value="Abort" name="text" id="buttonAbort"  ;/>
+										<br>
+										<input type="button" name="text" class="btn" value="Hold" id="buttonHold"  ;/>
+										<br>
+										<input type="button" class="btn" value="Other" name="text" id="buttonHold"  ;/>
+
+									</div>
+									<div>
+										<br>
+									<button type="button" class="btn btn-primary" id="buttonSubmit">Submit</button>
+								</div>
+								</div>
+								<div  hidden id="buttonSolution">
+									<br>
+										<h3  class="bg-primary" id="buttonSolutionText"></h3>
+										<h4 id="buttonSolutionText1" class="pull-left">
+											<ln> If the button has a: </ln>
+											<br><br><br>
+
+											<ln>White strip: release when the countdown timer has a 1 in any position.</ln>
+											<br>
+											<br>
+											<ln>Blue strip: release when the countdown timer has a 4 in any position.</ln>
+											<br>
+											<br>
+											<ln>Yellow strip: release when the countdown timer has a 5 in any position.</ln>
+											<br>
+											<br>
+											<ln>Other colored strip: release when the countdown timer has a 1 in any position.</ln>
+											<br>
+										</h4>
+										<br>
+										<ln>
+											
+									</div>
+									</ln>
+								
+									<div hidden id="buttonDoneDiv">
+										<button type="button" class="btn btn-primary pull-left" id="buttonDone">Got it!</button>
+									</div>
+<div hidden class="container pull-left" id="WhosModule">
+
+	<h4>Instructions</h4>    
+	<div class="row">
+		<div class="col-md-4">
+			  <dl>
+			  	<dt>""</dt>
+			    <dd>- bottom left</dd>
+			  	<dt>Blank</dt>
+			    <dd>- center right</dd>
+			    <dt>C</dt>
+			    <dd>- top right</dd>
+			    <dt>Cee</dt>
+			    <dd>- bottom right</dd>
+			    <dt>Display</dt>
+			    <dd>- bottom right</dd>
+			    <dt>First</dt>
+			    <dd>- top right</dd>
+			    <dt>Hold On</dt>
+			    <dd>- bottom right</dd>
+			    <dt>LED</dt>
+			    <dd>- center left</dd>
+			    <dt>Lead</dt>
+			    <dd>- bottom right</dd>
+			    <dt>Leed</dt>
+			    <dd>- bottom left</dd>
+			    <dt>No</dt>
+			    <dd>- bottom right</dd>
+			    <dt>Nothing</dt>
+		    <dd>- center left</dd>
+		    <dt>Okay</dt>
+		    <dd>- top right</dd>
+		    <dt>Read</dt>
+		    <dd>- center right</dd>
+			</dl>
+		</div>
+		<div class="col-md-8">
+			<dl>
+		    
+		    <dt>Red</dt>
+		    <dd>- center right</dd>
+		    <dt>Reed</dt>
+		    <dd>- bottom left</dd>
+		    <dt>Says</dt>
+		    <dd>- bottom right</dd>
+		    <dt>See</dt>
+		    <dd>- bottom right</dd>
+		    <dt>Their</dt>
+		    <dd>- middle right</dd>
+		    <dt>There</dt>
+		    <dd>- bottom right</dd>
+		    <dt>They Are</dt>
+		    <dd>- center left</dd>
+		    <dt>They're</dt>
+		    <dd>- bottom left</dd>
+		    <dt>UR</dt>
+		    <dd>- top left</dd>
+		    <dt>Yes</dt>
+		    <dd>- center left</dd>
+		    <dt>You</dt>
+		    <dd>- center right</dd>
+		    <dt>Your</dt>
+		    <dd>- center right</dd>
+		    <dt>You're</dt>
+		    <dd>- center right</dd>
+		    <dt>You Are</dt>
+		    <dd>- bottom right</dd>
+		  </dl>  
+		  </div>  
+	</div>
+	<div id="whosSolutionTe">
+	<h3 id="whosSolutionText"></h3>
+</div> 
+
+	<div class="container">
+	  <div class="btn-toolbar" role="toolbar">
+	    <div class="btn-group btn-group-lg btn-group-justified btn-group-fill-height">
+	      <a href="#" id="1"class="btn btn-default" role="button">
+	        <strong>Blank</strong><br>
+	        
+	      </a>
+	      <a href="#" id="2" class="btn btn-default" role="button">
+	        <strong>Done</strong><br>
+	      </a>
+	      <a href="#" id="3" class="btn btn-default" role="button">
+	        <strong>First</strong><br>
+	      </a>
+	      <a href="#" id="4" class="btn btn-default" role="button">
+	        <strong>Hold</strong><br>
+	              </a>
+	      <a href="#" id="5" class="btn btn-default" role="button">
+	        <strong>Left</strong><br>
+	      </a>
+	      <a href="#" id="6" class="btn btn-default" role="button">
+	        <strong>Like</strong><br>
+	      </a>
+	    </div>
+	    <div class="btn-group btn-group-lg btn-group-justified btn-group-fill-height">
+	      <a href="#" id="7" class="btn btn-default" role="button">
+	        <strong>Middle</strong><br>
+	      </a>
+	      <a href="#" id="8" class="btn btn-default" role="button">
+	        <strong>Next</strong><br>
+	      </a>
+	      <a href="#" id="9" class="btn btn-default" role="button">
+	        <strong>No</strong><br>
+	      </a>
+	      <a href="#" id="10" class="btn btn-default" role="button">
+	        <strong>Nothing</strong><br>
+	      </a>
+	      <a href="#" id="11" class="btn btn-default" role="button">
+	        <strong>Okay</strong><br>
+	      </a>
+	      <a href="#" id="12" class="btn btn-default" role="button">
+	        <strong>Press</strong><br>
+	      </a>
+	      </div>
+	    <div class="btn-group btn-group-lg btn-group-justified btn-group-fill-height">
+	      <a href="#" id="13" class="btn btn-default" role="button">
+	        <strong>Ready</strong><br>
+	      </a>
+	    
+	      <a href="#" id="14" class="btn btn-default" role="button">
+	        <strong>Right</strong><br>
+	      </a>
+	      <a href="#" id="15" class="btn btn-default" role="button">
+	        <strong>Sure</strong><br>
+
+	      </a>
+	      <a href="#" id="16" class="btn btn-default" role="button">
+	        <strong>U</strong><br>
+	      </a>
+	      <a href="#" id="17" class="btn btn-default" role="button">
+	        <strong>Uhhh</strong><br>
+	      </a>
+	      <a href="#" id="18" class="btn btn-default" role="button">
+	        <strong>Uh Huh</strong><br>
+	      </a>
+	       </div>
+	    <div class="btn-group btn-group-lg btn-group-justified btn-group-fill-height">
+	      <a href="#" id="19" class="btn btn-default" role="button">
+	        <strong>Uh Uh</strong><br>
+	      </a>
+	    
+	      <a href="#" id="20" class="btn btn-default" role="button">
+	        <strong>UR</strong><br>
+
+	      <a href="#" id="21" class="btn btn-default" role="button">
+	        <strong>What</strong><br>
+	      </a>
+	      <a href="#" id="22" class="btn btn-default" role="button">
+	        <strong>What?</strong><br>
+	      </a>
+	      <a href="#" id="23" class="btn btn-default" role="button">
+	        <strong>Wait</strong><br>
+	      </a>
+	      <a href="#" id="24" class="btn btn-default" role="button">
+	        <strong>Yes</strong><br>
+	      </a>
+
+	    </div>
+	    <div class="btn-group btn-group-lg btn-group-justified btn-group-fill-height">
+	      <a href="#" id="25" class="btn btn-default" role="button">
+	        <strong>You</strong><br>
+	      </a>
+	    
+	      <a href="#" id="26" class="btn btn-default" role="button">
+	        <strong>Your</strong><br>
+	    </a>
+
+	      <a href="#" id="27" class="btn btn-default" role="button">
+	        <strong>You're</strong><br>
+	      </a>
+	      <a href="#" id="28" class="btn btn-default" role="button">
+	        <strong>You Are</strong><br>
+	      </a>
+	      <a href="#" class="btn btn-default" role="button">
+	        <strong></strong><br>
+	      </a>
+	      <a href="#" class="btn btn-default" role="button">
+	        <strong></strong><br>
+	      </a>
+
+	    </div>
+	    <br>
+
+
+	<button type="button" class="btn btn-primary pull-left" id="whosDone">Done!</button>
+								
+</div>
+</div>
+</div>
+<div hidden class="container" id="MemoryModule">
+	<h3 id="memoryRound"></h3>
+	<h4>Select the display</h4>
+	  <div class="btn-toolbar" role="toolbar">
+	    <div class="btn-group btn-group-lg btn-group-justified btn-group-fill-height">
+	      <a href="#" id="mem1" name="1" class="btn btn-default" role="button">
+	        <strong>1</strong><br>
+	      </a>
+	      <a href="#" id="mem2" name="2" class="btn btn-default" role="button">
+	        <strong>2</strong><br>
+	      </a>
+	      <a href="#" id="mem3" name="3" class="btn btn-default" role="button">
+	        <strong>3</strong><br>
+	       </a>
+	      <a href="#" id="mem4" name="4" class="btn btn-default" role="button">
+	        <strong>4</strong><br>
+	      </a>
+	    </div>
+	    <br>
+	</div>
+	<h3 id="memoryAnswer"></h3>
+	<br>
+	<div hidden id="memoryLabel">
+		<h4 id="">What is the label?</h4>
+		<div class="btn-toolbar" role="toolbar">
+	    <div class="btn-group btn-group-lg btn-group-justified btn-group-fill-height color=blue">
+	      <a href="#" id="lab1" name="1" class="btn btn-default" role="button">
+	        <strong>1</strong><br>
+	      </a>
+	      <a href="#" id="lab2" name="2" class="btn btn-default" role="button">
+	        <strong>2</strong><br>
+	      </a>
+	      <a href="#" id="lab3" name="3" class="btn btn-default" role="button">
+	        <strong>3</strong><br>
+	       </a>
+	      <a href="#" id="lab4" name = "4" class="btn btn-default" role="button">
+	        <strong>4</strong><br>
+	      </a>
+	    </div>
+	</div>
+
+</div>
+<div hidden id="memoryPosition">
+		<h4 id="">What is the position?</h4>
+		<div class="btn-toolbar" role="toolbar">
+	    <div class="btn-group btn-group-lg btn-group-justified btn-group-fill-height">
+	      <a href="#" id="pos1" name="1" class="btn btn-default" role="button">
+	        <strong>1</strong><br>
+	      </a>
+	      <a href="#" id="pos2" name="2" class="btn btn-default" role="button">
+	        <strong>2</strong><br>
+	      </a>
+	      <a href="#" id="pos3" name="3" class="btn btn-default" role="button">
+	        <strong>3</strong><br>
+	       </a>
+	      <a href="#" id="pos4" name="4" class="btn btn-default" role="button">
+	        <strong>4</strong><br>
+	      </a>
+	    </div>
+	</div>
+
+</div>
+
+
+<div hidden id="memoryDonediv">
+<button  type="button"  class="btn btn-primary pull-left"  id="memoryDone">Done!</button>
+</div>
+
+</div>
+
+<div hidden id="ComplicatedModule">
+<br><br>
+	<h4>Is the wire blue?</h4>
+	<div class="btn-group btn-toggle" name="flip" id="complicatedBlue">
+		<button class="btn btn-default" name="complicatedBlue" id="even" value="yes">YES</button>
+		<button class="btn btn-primary" name="complicatedBlue" value="no" id="no">NO</button>
+	</div>
+	<h4>Is the wire red?</h4>
+	<div class="btn-group btn-toggle" name="flip" id="complicatedRed">
+		<button class="btn btn-default" name="complicatedRed" id="even" value="yes">YES</button>
+		<button class="btn btn-primary" name="complicatedRed" value="no" id="no">NO</button>
+	</div>
+	<h4>Is the star present?</h4>
+	<div class="btn-group btn-toggle" name="flip" id="complicatedStar">
+		<button class="btn btn-default" name="complicatedStar" id="even" value="true">YES</button>
+		<button class="btn btn-primary" name="complicatedStar" value="no" id="no">NO</button>
+	</div>
+	<h4>Is the LED on?</h4>
+	<div class="btn-group btn-toggle" name="flip" id="complicatedLed">
+		<button class="btn btn-default" name="complicatedLed" id="even" value="yes">YES</button>
+		<button class="btn btn-primary" name="complicatedLed" value="no" id="no">NO</button>
+	</div>
+
+	<div><br>
+		<button  type="button"  class="btn btn-primary pull-left"  id="complicatedSubmit">Submit!</button>
+	
+</div><br><br>
+	<h4 id="complicatedAnswer">Answer:</h4>
+	<div  id="complicatedDonediv">
+<button  type="button"  class="btn btn-primary pull-left"  id="complicatedDone">Done!</button>
+</div>
+</div>
+
+<div hidden id="PasswordModule"><br><br>
+	<h3>Enter all the letters for a column in lowercase with no spaces</h3>
+	<h4>Possible words:</h4><h4 id="wordslist"></h4><br><br>
+	<input type="text" id="passwordCol11" value="Column 1"></input><button  type="button"  class="default"  name="1" id="passwordCol1">Submit</button><br><br>
+	<input type="text" id="passwordCol21" value="Column 2"></input><button  type="button"  class="default"  name="2" id="passwordCol2">Submit</button><br><br>
+	<input type="text" id="passwordCol31"value="Column 3"></input><button  type="button"  class="default"  name="3" id="passwordCol3">Submit</button><br><br>
+	<input type="text" id="passwordCol41"value="Column 4"></input><button  type="button"  class="default"  name="4" id="passwordCol4">Submit</button><br><br>
+	<input type="text" id="passwordCol51"value="Column 5"></input><button  type="button"  class="default"  name="5" id="passwordCol5">Submit</button><br><br>
+
+
+
+
+	<button  type="button"  class="btn btn-primary pull-left"  id="passwordDone">Done!</button>
+</div>	
+
+<div  hidden id="SequencesModule"><br>	
+	<h3>Select the color and letter of the wire, then hit submit</h3><br>
+	<h4>Wire:</h4><h4 id="AbcCountlist">1</h4>
+	<div class = "btn-group-vertical" id="btn-group-vertical1">
+   <button type = "button" name = "ABCColor" class = "btn btn-default" value = "blue">Blue</button><br>
+   <button type = "button" name = "ABCColor"class = "btn btn-default" value = "black">Black</button><br>
+   <button type = "button" name = "ABCColor"class = "btn btn-default" value = "red">Red</button><br>
+</div>
+	<div class = "btn-group-vertical">
+   <button type = "button" name = "ABCLetter" class = "btn btn-default" value = "a">A</button><br>
+   <button type = "button" name = "ABCLetter" class = "btn btn-default" value = "b">B</button><br>
+   <button type = "button" name = "ABCLetter" class = "btn btn-default" value = "c">C</button><br>
+</div><br><br>
+<button  type="button"  class="btn btn-primary pull-left"  id="ABCWiresSubmit">Submit</button><br><br>
+<h4>Answer:</h4><h4 id="AbcAnswer"></h4><br>
+	<button  type="button"  class="btn btn-primary pull-left"  id="ABCWiresDone">Done!</button>
+</div>		
+
+<div  hidden id="MazeModule"><br>
+	<h3>Enter the position of one of the green circles (bottom left = 11 and top right = 66)</h3><br>
+	<input type="text" id="mazeCircle" placeholder="Green Circle"></input>
+	<h3>Enter the position of the white light and red triangle</h3><br>
+	<input type="text" id="mazeStart" placeholder="White Light"></input>
+	<input type="text" id="mazeEnd" placeholder="Red Triangle"></input><br><br>
+	<h3>Solution: </h3><h3 id="mazeSolution"></h3><br>
+	<button  type="button"  class="btn btn-primary pull-left"  id="mazeSubmit">Submit</button>
+	<div hidden id="mazeFinal">
+		<button  type="button"  class="btn btn-primary pull-left"  id="mazeDone">Got it!</button>
+	</div>
+</div>	
+
+<div  hidden id="SymbolsModule">
+	<div>
+	<h4 class="pull-left col-lg-12 col-sm-12 col-xs-12">Select the four symbols shown on the bomb, then have the defuser click the symbols from top to bottom</h4>
+</div><br><br><br><br>
+	<!-- FIRST ROW --> 
+
+	<div class="row">
+		<div class="col-lg-2 col-sm-3 col-xs-4 image" id="1a">
+		<img src="Symbols/1.png" name="1"class="thumbnail img-responsive" >
+		</div>
+		<div class="col-lg-2 col-sm-3 col-xs-4 image" id="2a">
+		<img src="Symbols/8.png" name="2"class="thumbnail img-responsive">
+		</div>
+		<div class="col-lg-2 col-sm-3 col-xs-4 image" id="3a">
+		<img src="Symbols/12.png" name="3"class="thumbnail img-responsive">
+		</div>
+		<div class="col-lg-2 col-sm-3 col-xs-4 image" id="4a">
+		<img src="Symbols/16.png" name="4" class="thumbnail img-responsive">
+		</div>
+		<div class="col-lg-2 col-sm-3 col-xs-4 image" id="5a">
+		<img src="Symbols/20.png" name="5" class="thumbnail img-responsive">
+		</div>
+		<div class="col-lg-2 col-sm-3 col-xs-4 image" id="6a">
+		<img src="Symbols/16.png" name="6" class="thumbnail img-responsive">
+		</div>
+</div>
+<!-- SECOND ROW --> 
+<div class="row">
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="1b">
+		<img src="Symbols/2.png" name="1" class="thumbnail img-responsive">
+	</div>
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="2b">
+		<img src="Symbols/1.png" name="2" class="thumbnail img-responsive">
+	</div>
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="3b">
+		<img src="Symbols/13.png" name="3" class="thumbnail img-responsive">
+	</div>
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="4b">
+		<img src="Symbols/17.png" name="4" class="thumbnail img-responsive">
+	</div>
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="5b">
+		<img src="Symbols/19.png" name="5" class="thumbnail img-responsive">
+	</div>
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="6b">
+		<img src="Symbols/8.png" name="6" class="thumbnail img-responsive">
+	</div>
+</div>
+<!-- THIRD ROW --> 
+<div class="row">
+	<div class="col-lg-2 col-sm-3 col-xs-4"  id="1c">
+		<img src="Symbols/3.png" name="1" class="thumbnail img-responsive">
+	</div>
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="2c">
+		<img src="Symbols/6.png" name="2" class="thumbnail img-responsive">
+	</div>
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="3c">
+		<img src="Symbols/9.png" name="3" class="thumbnail img-responsive">
+	</div>
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="4c">
+		<img src="Symbols/18.png" name="4" class="thumbnail img-responsive">
+	</div>
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="5c">
+		<img src="Symbols/18.png" name="5" class="thumbnail img-responsive">
+	</div>
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="6c">
+		<img src="Symbols/24.png" name="6" class="thumbnail img-responsive">
+	</div>
+	<!-- FOURTH ROW --> 
+<div class="row">
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="1d">
+		<img src="Symbols/4.png" name="1" class="thumbnail img-responsive">
+	</div>
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="2d">
+		<img src="Symbols/9.png" name="2" class="thumbnail img-responsive">
+	</div>
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="3d">
+		<img src="Symbols/14.png" name="3" class="thumbnail img-responsive">
+	</div>
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="4d">
+		<img src="Symbols/5.png" name="4" class="thumbnail img-responsive">
+	</div>
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="5d">
+		<img src="Symbols/21.png" name="5" class="thumbnail img-responsive">
+	 </div>
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="6d">
+		<img src="Symbols/25.png" name="6" class="thumbnail img-responsive">
+	</div>
+</div>
+	<!-- FIFTH ROW --> 
+<div class="row">
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="1e">
+		<img src="Symbols/5.png" name="1"class="thumbnail img-responsive">
+	</div>
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="2e">
+		<img src="Symbols/10.png" name="2"class="thumbnail img-responsive">
+	</div>
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="3e">
+		<img src="Symbols/15.png" name="3"class="thumbnail img-responsive">
+	</div>
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="4e">
+		<img src="Symbols/14.png" name="4" class="thumbnail img-responsive">
+	</div>
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="5e">
+		<img src="Symbols/17.png" name="5"class="thumbnail img-responsive">
+	</div>
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="6e">
+		<img src="Symbols/20.png" name="6"class="thumbnail img-responsive">
+	</div>
+</div>
+<!-- SIXTH ROW --> 
+<div class="row">
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="1f">
+		<img src="Symbols/7.png" name="1"class="thumbnail img-responsive">
+	</div>
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="2f">
+		<img src="Symbols/7.png" name="2"class="thumbnail img-responsive">
+	</div>
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="3f">
+		<img src="Symbols/3.png" name="3"class="thumbnail img-responsive">
+	</div>
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="4f">
+		<img src="Symbols/11.png" name="4"class="thumbnail img-responsive">
+	</div>
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="5f">
+		<img src="Symbols/22.png" name="5"class="thumbnail img-responsive">
+	</div>
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="6f">
+		<img src="Symbols/27.png" name="6"class="thumbnail img-responsive">
+	</div>
+</div>
+<!-- SEVENTH ROW --> 
+<div class="row">
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="1g">
+		<img src="Symbols/6.png" name="1"class="thumbnail img-responsive">
+	</div>
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="2g">
+		<img src="Symbols/11.png" name="2"class="thumbnail img-responsive">
+	</div>
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="3g">
+		<img src="Symbols/10.png" name="3" class="thumbnail img-responsive">
+	</div>
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="4g">
+		<img src="Symbols/19.png" name="4"class="thumbnail img-responsive">
+	</div>
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="5g">
+		<img src="Symbols/23.png" name="5"class="thumbnail img-responsive">
+	</div>
+	<div class="col-lg-2 col-sm-3 col-xs-4" id="6g">
+		<img src="Symbols/26.png" name="6"class="thumbnail img-responsive">
+	</div>
+</div>
+</div>
+
+<button  type="button"  class="btn btn-primary pull-left"  id="symbolsDone">Done!</button>
+</div>
+</body>
+
+								 
+								
+							
+								
+								<script src="jquery.js"></script>
+								<script src="bomb.js"></script>
+								<script src="bombLogic.js"></script>
+								<script src="bombExtraLogic.js"></script>
+								
+							</body>
+						</html>

@@ -1,0 +1,226 @@
+
+@font-face {
+    font-family: "Bomb";
+    src: url("./fonts/SpecialElite.ttf") format("truetype");
+}
+
+
+
+.thumbnail {
+  cursor:pointer;
+    padding-top: 0px;
+
+    padding-bottom: 0px;  
+
+}
+.image {
+
+}
+.selected {
+  outline:5px solid red;
+}
+.disappear {
+visibility:hidden;
+}
+
+#SymbolsModule img{
+    width:90px; /* you can use % */
+    height: auto;
+}
+
+.headerimage {
+	width: 100%;
+	max-width: 900px;
+}
+body {
+    font-family: "Bomb", "Courier New", Courier, monospace;
+}
+
+.container {
+  margin-bottom: 40px;
+}
+
+#moduleToggle {
+	 border: 2px solid black;
+	 background-color: white;
+	 width: 200%;
+}
+#moduleToggle:hover {
+	background-color: black;
+  color: white;
+}
+
+.strike {
+	font: bold;
+	border: 1px black;
+	font-weight: bold;
+	color: black;
+}
+.strikeicon {
+	color: red;
+}
+/*
+.strikeone {
+	color: orange;
+}
+.striketwo {
+	color: red;
+}
+*/
+#bg {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+	
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+	
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.navbar {
+    background: url('../img/bg-top.gif') repeat-x #333;
+    margin-bottom: 0;
+    border: 0;
+    border-radius: 0;
+}
+
+.navbar-brand {
+    height: 100%;
+}
+
+.navbar-strip {
+    height: 25px;
+    background-color: #BA442D;
+    margin-bottom: 20px;
+}
+
+.thumb {
+    margin-bottom: 30px;
+}
+
+.btn-thumbnail {
+    width: 100%;
+    min-height: 100px;
+    font-size: 1.5em;
+    white-space: normal;
+}
+
+.btn-submit {
+  width: 400px;
+  max-width: 100%;
+  min-height: 70px;
+  text-transform: uppercase;
+}
+
+.btn-primary { 
+  color: #FFFFFF; 
+  background-color: #BA442D; 
+  border-color: #A1341E; 
+} 
+ 
+.btn-primary:hover, 
+.btn-primary:focus, 
+.btn-primary:active, 
+.btn-primary.active, 
+.btn-primary.active:hover,
+.btn-primary.active:focus,
+.btn-primary.active:active,
+.open .dropdown-toggle.btn-primary { 
+  color: #FFFFFF; 
+  background-color: #9C3B27; 
+  border-color: #A1341E; 
+} 
+ 
+.btn-primary:active, 
+.btn-primary.active, 
+.open .dropdown-toggle.btn-primary { 
+  background-image: none; 
+} 
+ 
+.btn-primary.disabled, 
+.btn-primary[disabled], 
+fieldset[disabled] .btn-primary, 
+.btn-primary.disabled:hover, 
+.btn-primary[disabled]:hover, 
+fieldset[disabled] .btn-primary:hover, 
+.btn-primary.disabled:focus, 
+.btn-primary[disabled]:focus, 
+fieldset[disabled] .btn-primary:focus, 
+.btn-primary.disabled:active, 
+.btn-primary[disabled]:active, 
+fieldset[disabled] .btn-primary:active, 
+.btn-primary.disabled.active, 
+.btn-primary[disabled].active, 
+fieldset[disabled] .btn-primary.active { 
+  background-color: #BA442D; 
+  border-color: #A1341E; 
+} 
+ 
+.btn-primary .badge { 
+  color: #BA442D; 
+  background-color: #FFFFFF; 
+}
+
+.btn-secondary { 
+  color: #ffffff; 
+  background-color: #333333; 
+  border-color: #222222; 
+} 
+ 
+.btn-secondary:hover, 
+.btn-secondary:focus, 
+.btn-secondary:active, 
+.btn-secondary.active, 
+.btn-secondary.active:hover,
+.btn-secondary.active:focus,
+.btn-secondary.active:active,
+.open .dropdown-toggle.btn-secondary { 
+  color: #ffffff; 
+  background-color: #3D3D3D; 
+  border-color: #222222; 
+} 
+ 
+.btn-secondary:active, 
+.btn-secondary.active, 
+.open .dropdown-toggle.btn-secondary { 
+  background-image: none; 
+} 
+ 
+.btn-secondary.disabled, 
+.btn-secondary[disabled], 
+fieldset[disabled] .btn-secondary, 
+.btn-secondary.disabled:hover, 
+.btn-secondary[disabled]:hover, 
+fieldset[disabled] .btn-secondary:hover, 
+.btn-secondary.disabled:focus, 
+.btn-secondary[disabled]:focus, 
+fieldset[disabled] .btn-secondary:focus, 
+.btn-secondary.disabled:active, 
+.btn-secondary[disabled]:active, 
+fieldset[disabled] .btn-secondary:active, 
+.btn-secondary.disabled.active, 
+.btn-secondary[disabled].active, 
+fieldset[disabled] .btn-secondary.active { 
+  background-color: #333333; 
+  border-color: #222222; 
+} 
+ 
+.btn-secondary .badge { 
+  color: #333333; 
+  background-color: #ffffff; 
+}
+
+#ModuleSelection .gallery {
+
+  margin-bottom: 20px;
+}
+
+.bomb-question {
+  margin-bottom: 30px;
+}
+

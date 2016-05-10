@@ -1,0 +1,27 @@
+<div class="container pull-left" id="WiresModule">
+	<div class="row">
+		<div class="col-xs-11">
+	<h3>Click the wires in the order they appear from top to bottom</h3>
+</div>
+
+<div class="col-xs-1">
+	<button type="button" class="btn btn-success pull-right glyphicon glyphicon-refresh" id="refresh"></button>
+</div>
+</div>
+<hr/>
+	<input type="button" class="btn btn-primary" value="Red" onClick="addWire('Red')" ;/>
+	<input type="button" class="btn btn-default" value="White" onClick="addWire('White')" ;/>
+	<input type="button" class="btn btn-info" value="Blue" onClick="addWire('Blue')" ;/>
+	<input type="button" class="btn btn-warning" value="Yellow" onClick="addWire('Yellow')" ;/>
+	<input type="button" class="btn btn-secondary" value="Black" onClick="addWire('Black')" ;/>
+	<h4 id="dd" class="gamesection">
+		<span>Selected wires</span>
+	</h4>
+	<div id="wireList" style="padding: 0;">
+		<ul id="currentWireList"></ul>
+	</div>
+	<button type="button" class="btn btn-primary" id="wiresSubmit">Submit</button>
+</div>
+<div class="container pull-left" id="wiresSolution">
+		<h4 id="wiresSolutionText"></h4>
+	</div>
