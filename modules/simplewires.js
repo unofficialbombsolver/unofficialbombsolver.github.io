@@ -107,19 +107,19 @@ function wires1(list) {
     }
     if(wires.length == 6) {
     	//&& the last digit is odd
-    	 if (wires.indexOf("Black") < 0 && serial == "odd") {
+    	 if (wires.indexOf("Yellow") < 0 && serial == "odd") {
     	 	
     	 	return("Cut the third wire");
        	 }
        	 count=0
-       	 for (var i=0; i< 4; i++) {
+       	 for (var i=0; i< 6; i++) {
             	if (wires[i] == "White") {
                	 count=count+1
             	}
       	   }
       	 if (count > 1) {
       	 	count=0;
-      	 	for (var i=0; i< 4; i++) {
+      	 	for (var i=0; i< 6; i++) {
             	if (wires[i] == "Yellow") {
                	 count=count+1
             	}

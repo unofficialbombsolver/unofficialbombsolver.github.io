@@ -1,25 +1,31 @@
  console.log("button loaded");
 function button(color, text) {
-  if (color == "Blue" && text == "Abort") {
+  console.log(color, text);
+  console.log($('#bat2'));
+  console.log($('#bat3'));
+
+
+   if (color == "Blue" && text == "Abort") {
     return "hold";
-  };
+  }
   //white and lit indicator car
-   if (color == "White" && $('#CAR').hasClass('active')) {
+   else if (color == "White" && $('#CAR').hasClass('active')) {
     return "hold";
-  };
+  }
   //more than one battery and button says detonate
  // if (($('#bat2').hasClass('active')))
-   if ($('#bat2').hasClass('active') || $('#bat3').hasClass('active') && text == "Detonate") {
+   else if (($('#bat2').hasClass('btn-primary') || $('#bat3').hasClass('btn-primary')) && text == "Detonate") {
+    console.log("press and release");
     return "Press and immediately release the button";
-  };
-   if ($('#bat3').hasClass('active') || $('#FRK').hasClass('active')) {
+  }
+   else if ($('#bat3').hasClass('btn-primary') || $('#FRK').hasClass('btn-primary')) {
     return "Press and immediately release the button";
-  };
-   if (color == "Yellow") {
+  }
+   else if (color == "Yellow") {
     return "hold";
-  };
-   if (color == "Red" && text == "Hold") {
+  }
+   else if (color == "Red" && text == "Hold") {
     return "Press and immediately release the button";
-  };
-   return 'hold';
+  }
+   else {return 'hold'};
 }

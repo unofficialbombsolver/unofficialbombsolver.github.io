@@ -99,28 +99,26 @@ $( document ).ready(function() {
             });
 
             $("#buttonSubmit").click(function(){
-            $("#ButtonModule").hide();
+
             var text = ($('.btn-primary[name=text]').val());
-            var color = ($('.btn-primary[name=text]').val());
+            var color = ($('.btn-primary[name=color]').val());
             var value = button(color, text);
             if (value == "hold") {
+                $('#buttonSolutionText').hide();
                 $('#buttonSolution').show();
-                $('#buttonSolutionText1').show();
-                $('#buttonDoneDiv').show();
+                $('#buttonholdtext').show();
+ 
             }
             else {
 
-                $('#buttonSolutionText1').append(value);
+                $('#buttonSolutionText').text(value);
+                $('#buttonholdtext').hide();
                 $('#buttonSolution').show();
-                $('#buttonSolutionText1').show();
-                $('#buttonDoneDiv').show();
-            }
-        });
-        $("#buttonDone").click(function(){
-            $('#buttonSolution').hide();
-            $('#buttonDoneDiv').hide();
+                $('#buttonSolutionText').show();
 
-        });
+            }
+        });                                                                                                         
+
 
         });
     });
