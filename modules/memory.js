@@ -111,8 +111,9 @@ if (round==5) {
     return("Press the button with the label " + answer)
   }
   if (display ==2) {
-    memoryList[4].position = 1;
-    return("Press the button in the first position")
+    answer = memoryList[1].valuee;
+    memoryList[4].position = answer;
+    return("Press the button with the label " + answer)
   }
   if (display ==3) {
     //same label as stage 4
